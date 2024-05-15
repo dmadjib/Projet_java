@@ -13,14 +13,7 @@ public class MaFenetre extends JFrame {
      pan = new Paneau(new Palet(30,30,2,2)) ; 
  /*	pan = new Paneau(new Pulsar(...)) ; */
      setContentPane(pan) ;
-     }
+    }
  
-     public int getWidth() {
-         return this.width;
-     }
- 
-     public int getHeight(){
-         return this.height;
-     }
  }
  
