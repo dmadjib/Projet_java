@@ -4,18 +4,22 @@ import java.awt.* ;
 
 class Paneau extends JPanel {
 
-	MovingObject p ;
+	MovingObject bal,pad ;
 
-   Paneau(MovingObject p){
+   Paneau(MovingObject _pal,MovingObject _pad){
 	super();
-	this.p=p ;
+	this.bal=_pal ;
+	this.pad =_pad;
    }
 
    @Override
     public void paintComponent (Graphics g){
-	final Rectangle r = p.getRect() ;
-	g.fillRect (r.x, r.y, r.width, r.height);
-	p.deplace() ;
+	final Rectangle ball = bal.getRect() ;
+	final Rectangle padle = pad.getRect();
+	g.fillRect (ball.x, ball.y, ball.width, ball.height);
+	g.fillRect(padle.x, padle.y, padle.width, padle.height);
+	bal.deplace() ;
+	pad.deplace() ;
    }
 }
 
@@ -27,12 +31,13 @@ public class Jeu {
 
 	System.setProperty("sun.java2d.opengl", "true"); /* pour animation fluide */
 
-	MaFenetre fen = new MaFenetre(Constants.WIDTH, Constants.HEIGHT) ;
+	MaFenetre fen = new MaFenetre(Constants.WidthFen, Constants.HeightFen) ;
 
 	fen.setVisible(true);
 
 	fen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+	
+	//System.out.println(xFen+ " " +yFen);
 	while (true){
 	    fen.repaint() ; 
 		Thread.sleep(50);
