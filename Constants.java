@@ -19,6 +19,12 @@ public final class Constants {
     public static final int vxinitBal = 2;
     public static final int vyinitBal = 2;
 
+    //les dimensions d'une brique
+    public static final int BricksPerRows = 6;
+    public static final int margeBrick = 3;
+    public static final int widthBrick = (WidthFen/BricksPerRows)-margeBrick;
+    public static final int heightBrick =20;
+
     
     //titre du jeu
     public static final String TITLE ="Breakout games";
