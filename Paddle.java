@@ -1,7 +1,9 @@
 
 import java.awt.Rectangle ;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 
-public class Paddle implements MovingObject {
+public class Paddle implements MovingObject, MouseMotionListener {
     int x ;
     int y;
 
@@ -27,5 +29,18 @@ public class Paddle implements MovingObject {
     @Override
     public Rectangle getRect(){
       return new Rectangle(x,y,Constants.WidthPad,Constants.HeightPad);
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+      // TODO Auto-generated method stub
+      throw new UnsupportedOperationException("Unimplemented method 'mouseDragged'");
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+      // TODO Auto-generated method stub
+      double x_event = e.getX();
+      System.out.println(x_event);
     }
   }
