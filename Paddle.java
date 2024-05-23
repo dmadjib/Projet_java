@@ -18,8 +18,9 @@ public class Paddle implements MovingObject, MouseMotionListener {
 
     @Override
     public void deplace(){
-    if (x>Constants.WidthFen) {
-        x = Constants.WidthFen;
+      
+    if (x>Constants.WidthFen-Constants.WidthPad-Constants.margeD) {
+        x = Constants.WidthFen-Constants.WidthPad-Constants.margeD;
       }
     else if (x<0) {
       x = 0;
@@ -39,8 +40,7 @@ public class Paddle implements MovingObject, MouseMotionListener {
 
     @Override
     public void mouseMoved(MouseEvent e) {
-      // TODO Auto-generated method stub
-      double x_event = e.getX();
-      System.out.println(x_event);
+      x = e.getX();
+      deplace();
     }
   }

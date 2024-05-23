@@ -5,11 +5,12 @@ import java.awt.* ;
 class Paneau extends JPanel {
 
 	MovingObject bal,pad ;
-
-   Paneau(MovingObject _pal,MovingObject _pad){
+	Bricks bricks;
+   Paneau(MovingObject _pal,MovingObject _pad, Bricks _bricks){
 	super();
 	this.bal=_pal ;
 	this.pad =_pad;
+	this.bricks = _bricks;
    }
 
    @Override
@@ -18,6 +19,18 @@ class Paneau extends JPanel {
 	final Rectangle padle = pad.getRect();
 	g.fillRect (ball.x, ball.y, ball.width, ball.height);
 	g.fillRect(padle.x, padle.y, padle.width, padle.height);
+	//bricks.printBricks();
+
+	for (int i = 0;i<Constants.BricksPerColumn;i++){
+		for (int j = 0;j<Constants.BricksPerRows;j++){
+			Brick brick = bricks.ManyBricks[i][j];
+			Rectangle brickForm = bricks.ManyBricks[i][j].getRect();
+			g.setColor(brick.couleur);
+			g.fillRect(brickForm.x, brickForm.y,Constants.widthBrick, Constants.heightBrick);
+		}
+	}
+
+		
 	bal.deplace() ;
 	pad.deplace() ;
    }
@@ -37,7 +50,6 @@ public class Jeu {
 
 	fen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
-	//System.out.println(xFen+ " " +yFen);
 	while (true){
 	    fen.repaint() ; 
 		Thread.sleep(50);
