@@ -21,9 +21,11 @@ public final class Constants {
 
     //les dimensions d'une brique
     public static final int BricksPerRows = 6;
+    public static final int BricksPerColumn = 8;
     public static final int margeBrick = 3;
     public static final int widthBrick = (WidthFen/BricksPerRows)-margeBrick;
     public static final int heightBrick =20;
+
 
     
     //titre du jeu
