@@ -36,13 +36,17 @@ public class Balle implements MovingObject {
 	    y = y + vy ;
     }
   }
+  
+  public boolean hitUpperWall(){
+    return y == 0;
+  }
 
-  public void ChangeV(){
+  public void ChangeDir(){
 
     //vx = (-1) * vx;
     vy = (-1) * vy;
   } 
-
+@Override
   public Rectangle getRect(){
     return new Rectangle(x,y,Constants.WidthBal,Constants.HeightBal);
   }    

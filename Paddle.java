@@ -6,11 +6,15 @@ import java.awt.event.MouseMotionListener;
 public class Paddle implements MovingObject, MouseMotionListener {
     int x ;
     int y;
+    public int WidthPad;
+    public int HeightPad;
 
 
     Paddle(int _x, int _y){
       this.x = _x;
       this.y = _y;
+      WidthPad = Constants.WidthPad;
+      HeightPad = Constants.HeightPad;
     }
 
     //quand le paddle atteint les bords de la fenêtre
@@ -33,11 +37,6 @@ public class Paddle implements MovingObject, MouseMotionListener {
     }
 
     @Override
-    public void ChangeV(){
-      throw new UnsupportedOperationException("Unimplemented method 'ChangeV()'");
-    } 
-
-    @Override
     public void mouseDragged(MouseEvent e) {
       // TODO Auto-generated method stub
       throw new UnsupportedOperationException("Unimplemented method 'mouseDragged'");
@@ -48,4 +47,4 @@ public class Paddle implements MovingObject, MouseMotionListener {
       x = e.getX();
       deplace();
     }
-  }
+}

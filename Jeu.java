@@ -35,23 +35,31 @@ class Paneau extends JPanel {
 
 	bal.deplace() ;
 	pad.deplace() ;
-	ManageCollisions();
+	manageCollisions();
+	manageWidthPad();
    }
 
-   public void ManageCollisions(){
-		if (bal.getRect().intersects(pad.getRect())) {
-		bal.ChangeV();;
+    public void manageCollisions(){
+		if (bal.getRect().intersects(((Paddle)pad).getRect())) {
+		((Balle)bal).ChangeDir();
 		}
+		
 		for (int i = 0;i<Constants.BricksPerColumn;i++){
 			for (int j = 0;j<Constants.BricksPerRows;j++){
 				if (bal.getRect().intersects(bricks.ManyBricks[i][j].getRect())){
-					bal.ChangeV();
+					((Balle)bal).ChangeDir();
 					bricks.ManyBricks[i][j].hasToDisapeared();
 				}
 
 			}
 		}
    }
+
+    public void manageWidthPad(){
+		if (((Balle)bal).hitUpperWall()) {
+			((Paddle) pad).WidthPad =((Paddle) pad).WidthPad-((Paddle) pad).WidthPad*(1/4) ;
+		}
+	}
 }
 
 
