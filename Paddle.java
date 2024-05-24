@@ -33,6 +33,11 @@ public class Paddle implements MovingObject, MouseMotionListener {
     }
 
     @Override
+    public void ChangeV(){
+      throw new UnsupportedOperationException("Unimplemented method 'ChangeV()'");
+    } 
+
+    @Override
     public void mouseDragged(MouseEvent e) {
       // TODO Auto-generated method stub
       throw new UnsupportedOperationException("Unimplemented method 'mouseDragged'");

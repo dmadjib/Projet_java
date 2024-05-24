@@ -1,11 +1,11 @@
 import javax.swing.* ;
 import java.awt.* ;
 
-
 class Paneau extends JPanel {
 
 	MovingObject bal,pad ;
 	Bricks bricks;
+	
    Paneau(MovingObject _pal,MovingObject _pad, Bricks _bricks){
 	super();
 	this.bal=_pal ;
@@ -13,13 +13,16 @@ class Paneau extends JPanel {
 	this.bricks = _bricks;
    }
 
+
+
    @Override
     public void paintComponent (Graphics g){
 	final Rectangle ball = bal.getRect() ;
 	final Rectangle padle = pad.getRect();
+	g.setColor(Constants.ballColor);
 	g.fillRect (ball.x, ball.y, ball.width, ball.height);
+	g.setColor(Constants.padColor);
 	g.fillRect(padle.x, padle.y, padle.width, padle.height);
-	//bricks.printBricks();
 
 	for (int i = 0;i<Constants.BricksPerColumn;i++){
 		for (int j = 0;j<Constants.BricksPerRows;j++){
@@ -30,9 +33,24 @@ class Paneau extends JPanel {
 		}
 	}
 
-		
 	bal.deplace() ;
 	pad.deplace() ;
+	ManageCollisions();
+   }
+
+   public void ManageCollisions(){
+		if (bal.getRect().intersects(pad.getRect())) {
+		bal.ChangeV();;
+		}
+		for (int i = 0;i<Constants.BricksPerColumn;i++){
+			for (int j = 0;j<Constants.BricksPerRows;j++){
+				if (bal.getRect().intersects(bricks.ManyBricks[i][j].getRect())){
+					bal.ChangeV();
+					bricks.ManyBricks[i][j].hasToDisapeared();
+				}
+
+			}
+		}
    }
 }
 
