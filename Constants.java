@@ -20,8 +20,8 @@ public final class Constants {
     public static final int HeightBal = 10;
     public static final int XinitBal = WidthFen/2; //30
     public static final int YinitBal = HeightFen/2;  //30
-    public static final int vxinitBal = 2;
-    public static final int vyinitBal = 2;
+    public static final int vxinitBal = 10;
+    public static final int vyinitBal = 10;
 
     //les dimensions d'une brique
     public static final int BricksPerRows = 6;
@@ -35,5 +35,6 @@ public final class Constants {
     //titre du jeu
     public static final String TITLE ="Breakout games";
     public static Color backgroundColor = Color.BLACK;
+	public static int turns = 3;
 
 }

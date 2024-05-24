@@ -49,6 +49,10 @@ public class Balle implements MovingObject {
 @Override
   public Rectangle getRect(){
     return new Rectangle(x,y,Constants.WidthBal,Constants.HeightBal);
+  }
+  public void IncreaseSpeed() {
+    this.vx = this.vx+10;
+    this.vy = this.vy+10;
   }    
    
   /**public void hitWith(MovingObject _paddle){
