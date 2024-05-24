@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 public final class Constants {
     
     //dimensions de la fenêtre
@@ -7,15 +9,17 @@ public final class Constants {
     public static final int margeB = 50;   //marge basse de la fenêtre
 
     //dimensions du paddle
-    public static final int WidthPad =  50;
-    public static final int HeightPad = 20;
+    public static final int WidthPad =  80;
+    public static final int HeightPad = 10;
     public static final int Ypad = 200-20;
+    public static Color padColor = Color.BLUE;
+    public static Color ballColor = Color.WHITE;
 
     //les dimensions  de la balle
     public static final int WidthBal =  10;
     public static final int HeightBal = 10;
-    public static final int XinitBal = 30; //30
-    public static final int YinitBal = 30;  //30
+    public static final int XinitBal = WidthFen/2; //30
+    public static final int YinitBal = HeightFen/2;  //30
     public static final int vxinitBal = 2;
     public static final int vyinitBal = 2;
 
@@ -30,4 +34,6 @@ public final class Constants {
     
     //titre du jeu
     public static final String TITLE ="Breakout games";
+    public static Color backgroundColor = Color.BLACK;
+
 }

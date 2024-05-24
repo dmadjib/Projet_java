@@ -14,14 +14,15 @@ public class MaFenetre extends JFrame {
         setSize(width, height);
         setTitle(Constants.TITLE);
        
-        MovingObject une_balle = new Balle(Constants.XinitBal, Constants.YinitBal, Constants.vxinitBal, Constants.vyinitBal);
-        Paddle un_paddle = new Paddle(Constants.WidthFen / 2, Constants.HeightFen - Constants.margeB - Constants.HeightPad);
+        MovingObject bal = new Balle(Constants.XinitBal, Constants.YinitBal, Constants.vxinitBal, Constants.vyinitBal);
+        Paddle paddle = new Paddle(Constants.WidthFen / 2, Constants.HeightFen - Constants.margeB - Constants.HeightPad);
         Bricks bricks = new Bricks();
 
 
-        this.addMouseMotionListener(un_paddle);
+        this.addMouseMotionListener(paddle);
 
-        pan = new Paneau(une_balle, un_paddle,bricks);
+        pan = new Paneau(bal, paddle,bricks);
+        setBackground(Constants.backgroundColor);
         setContentPane(pan);
     }
 
